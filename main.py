@@ -1,70 +1,15 @@
-from time import sleep
-from random import randint
+"""
+Creado con Python3 y PyQt5
+Finite Machine Simulator(FSM) de la figura 4.2
+Libro Algorithms, Languages, Automata, and Compilers
+"""
 
-#Variable global
-estado = 'i'
+import sys # Para usar la interfaz
+from PyQt5.QtWidgets import QApplication # Para usar la interfaz
+from interfaz import gui #gui de la interfaz
 
-#Estados
-def EDOi(entrada):
-    global estado
-    print('Estado Inicial')
-    #Transiciónes
-    sleep(2)
-    if entrada == 0:
-        estado = 'i'
-    if entrada == 1:
-        estado = 0
-        print(u'Transición hacia 0...')
-
-def EDO0(entrada):
-    global estado
-    print('Estado 0')
-    #Transiciones
-    sleep(2)
-    if entrada == 0:
-        estado = 1
-        print(u'Transición hacia 1...')
-    if entrada == 1:
-        estado = 2
-        print(u'Transición hacia 2...')
-        
-def EDO1(entrada):
-    global estado
-    print('Estado 1')
-    #Transiciones
-    sleep(2)
-    if entrada == 0:
-        estado = 0
-        print(u'Transición hacia 0...')
-    if entrada == 1:
-        estado = 2
-        print(u'Transición hacia 2...')
-
-def EDO2(entrada):
-    global estado
-    print('Estado 2')
-    #Transiciones
-    sleep(2)
-    if entrada == 0:
-        estado = 1
-        print(u'Transición hacia 1...')
-    if entrada == 1:
-        estado = 0
-        print(u'Transición hacia 0...')
-
-#Finite State Machine (FSM)   
-def FSM(entrada):
-    global estado
-    switch = {
-       'i':EDOi,
-        0 :EDO0,
-        1 :EDO1,
-        2 :EDO2,
-    }
-    func = switch.get(estado, lambda: None)
-    return func(entrada)
-
-#Programa Principal
-while True:    
- FSM(randint(0,1))
- sleep(2)
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    gui = gui()
+    gui.show()
+    sys.exit(app.exec_())
