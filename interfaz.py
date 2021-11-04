@@ -15,7 +15,6 @@ class gui(QWidget):
         super().__init__()
         self.initUI()
         
-
     def initUI(self):
         self.setGeometry(0, 0, 800, 600)
         self.setWindowTitle('Interfaz')
