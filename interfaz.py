@@ -147,6 +147,7 @@ class gui(QWidget):
         self.label.hide()
         self.guardar.hide()
         self.label2.hide()
+        self.back_to_juego.hide()
         self.menu_principal()
         
         
